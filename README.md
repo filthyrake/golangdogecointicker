@@ -1,0 +1,1 @@
+This is just a repo I setup to share some of the code I've written for the newest iteration of dogecointicker.  This iteration is entirely GoLang, and runs off a Windows PC, which is why a lot of it is SUPER funky.
