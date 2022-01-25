@@ -22,15 +22,15 @@ dogecointickerresponder.go - this handles replying to DMs with random fun facts 
 
 Current cron configuration
 
-*/60 * * * * /<path>/dogecointicker
+*/60 * * * * //<path/>/dogecointicker
   
-30 17 * * * /<path>/dogecoinfud
+30 17 * * * //<path/>/dogecoinfud
   
-*/5 * * * * /<path>/dogecointickerresponder
+*/5 * * * * //<path/>/dogecointickerresponder
   
-05 12 * * * /<path>/dogecoin2gum
+05 12 * * * //<path/>/dogecoin2gum
   
-00 5 * * * /<path>/dogeartgenerator
+00 5 * * * //<path/>/dogeartgenerator
   
 30 9 * * * /<path>/dogeartuploader
 
