@@ -4,7 +4,7 @@ Copyright 2021
 
 This is just a repo I setup to share some of the code I've written for the newest iteration of dogecointicker.  This iteration is entirely GoLang.
 
-Plans include: Updated Art generation, non-Windows code, actual setup/usage instructions.
+Plans include: Updated Art generation, actual setup/usage instructions.
 
 List of files and what they do:
 
