@@ -2,7 +2,7 @@ Written by Damen Knight
 
 Copyright 2021
 
-This is just a repo I setup to share some of the code I've written for the newest iteration of dogecointicker.  This iteration is entirely GoLang, and runs off a Windows PC, which is why a lot of it is SUPER funky.
+This is just a repo I setup to share some of the code I've written for the newest iteration of dogecointicker.  This iteration is entirely GoLang.
 
 Plans include: Updated Art generation, non-Windows code, actual setup/usage instructions.
 
