@@ -146,149 +146,33 @@ func specialSchema() {
 
 // Randomly pick and set our background color for the canvas
 func setBG() {
-	min := 0
-	max := 19
-	// Let's set the background color
-	var randNumBG = rand.Intn(max - min + 1) + min
-	if randNumBG == 0 {
-		c.SetBackground(common.MistyRose)
-	} else if randNumBG == 1 {
-		c.SetBackground(common.DarkSalmon)
-	} else if randNumBG == 2 {
-		c.SetBackground(common.Tan)
-	} else if randNumBG == 3 {
-		c.SetBackground(common.Bisque)
-	} else if randNumBG == 4 {
-		c.SetBackground(common.Mintcream)
-	} else if randNumBG == 5 {
-		c.SetBackground(common.Aquamarine)
-	} else if randNumBG == 6 {
-		c.SetBackground(common.Azure)
-	} else if randNumBG == 7 {
-		c.SetBackground(common.Lavender)
-	} else if randNumBG == 8 {
-		c.SetBackground(common.Plum)
-	} else if randNumBG == 9 {
-		c.SetBackground(common.AntiqueWhite)
-	} else if randNumBG == 10 {
-		c.SetBackground(common.NavajoWhite)
-	} else if randNumBG == 11 {
-		c.SetBackground(common.Moccasin)
-	} else if randNumBG == 12 {
-		c.SetBackground(common.MediumAquamarine)
-	} else if randNumBG == 13 {
-		c.SetBackground(common.PaleTurquoise)
-	} else if randNumBG == 14 {
-		c.SetBackground(common.LightPink)
-	} else if randNumBG == 15 {
-		c.SetBackground(common.Tomato)
-	} else if randNumBG == 16 {
-		c.SetBackground(common.Orange)
-	} else if randNumBG == 17 {
-		c.SetBackground(common.Black)
-	} else if randNumBG == 18 {
-		c.SetBackground(common.White)
-	} else if randNumBG == 19 {
-		c.SetBackground(common.LightGray)
-	}
+        var randR = uint8(rand.Intn(255))
+        var randG = uint8(rand.Intn(255))
+        var randB = uint8(rand.Intn(255))
+        var randA = uint8(rand.Intn(255))
+        // Let's set the background color
+        c.SetBackground(color.RGBA{R: randR, G: randG, B: randB, A: randA})
 }
 
 // Randomly pick and set our line color for the canvas
 func setLC() {
-	min := 0
-	max := 19
+        var randR = uint8(rand.Intn(255))
+        var randG = uint8(rand.Intn(255))
+        var randB = uint8(rand.Intn(255))
+        var randA = uint8(rand.Intn(255))
 	// Let's set the line color
-	var randNumLC = rand.Intn(max - min + 1) + min
-	if randNumLC == 0 {
-		c.SetLineColor(common.MistyRose)
-	} else if randNumLC == 1 {
-		c.SetLineColor(common.DarkSalmon)
-	} else if randNumLC == 2 {
-		c.SetForeground(common.Tan)
-	} else if randNumLC == 3 {
-		c.SetLineColor(common.Bisque)
-	} else if randNumLC == 4 {
-		c.SetLineColor(common.Mintcream)
-	} else if randNumLC == 5 {
-		c.SetLineColor(common.Aquamarine)
-	} else if randNumLC == 6 {
-		c.SetLineColor(common.Azure)
-	} else if randNumLC == 7 {
-		c.SetLineColor(common.Lavender)
-	} else if randNumLC == 8 {
-		c.SetLineColor(common.Plum)
-	} else if randNumLC == 9 {
-		c.SetLineColor(common.AntiqueWhite)
-	} else if randNumLC == 10 {
-		c.SetLineColor(common.NavajoWhite)
-	} else if randNumLC == 11 {
-		c.SetLineColor(common.Moccasin)
-	} else if randNumLC == 12 {
-		c.SetLineColor(common.MediumAquamarine)
-	} else if randNumLC == 13 {
-		c.SetLineColor(common.PaleTurquoise)
-	} else if randNumLC == 14 {
-		c.SetLineColor(common.LightPink)
-	} else if randNumLC == 15 {
-		c.SetLineColor(common.Tomato)
-	} else if randNumLC == 16 {
-		c.SetLineColor(common.Orange)
-	} else if randNumLC == 17 {
-		c.SetLineColor(common.Black)
-	} else if randNumLC == 18 {
-		c.SetLineColor(common.White)
-	} else if randNumLC == 19 {
-		c.SetLineColor(common.LightGray)
-	}
+	c.SetLineColor(color.RGBA{R: randR, G: randG, B: randB, A: randA})
 }
 
 // Randomly pick and set our foreground color for the canvas
 func setFG() {
-	min := 0
-	max := 19
+        var randR = uint8(rand.Intn(255))
+        var randG = uint8(rand.Intn(255))
+        var randB = uint8(rand.Intn(255))
+        var randA = uint8(rand.Intn(255))
 	// Let's set the foregroundcolor
-	var randNumFG = rand.Intn(max - min + 1) + min
-	if randNumFG == 0 {
-		c.SetForeground(common.MistyRose)
-	} else if randNumFG == 1 {
-		c.SetForeground(common.DarkSalmon)
-	} else if randNumFG == 2 {
-		c.SetForeground(common.Tan)
-	} else if randNumFG == 3 {
-		c.SetForeground(common.Bisque)
-	} else if randNumFG == 4 {
-		c.SetForeground(common.Mintcream)
-	} else if randNumFG == 5 {
-		c.SetForeground(common.Aquamarine)
-	} else if randNumFG == 6 {
-		c.SetForeground(common.Azure)
-	} else if randNumFG == 7 {
-		c.SetForeground(common.Lavender)
-	} else if randNumFG == 8 {
-		c.SetForeground(common.Plum)
-	} else if randNumFG == 9 {
-		c.SetForeground(common.AntiqueWhite)
-	} else if randNumFG == 10 {
-		c.SetForeground(common.NavajoWhite)
-	} else if randNumFG == 11 {
-		c.SetForeground(common.Moccasin)
-	} else if randNumFG == 12 {
-		c.SetForeground(common.MediumAquamarine)
-	} else if randNumFG == 13 {
-		c.SetForeground(common.PaleTurquoise)
-	} else if randNumFG == 14 {
-		c.SetForeground(common.LightPink)
-	} else if randNumFG == 15 {
-		c.SetForeground(common.Tomato)
-	} else if randNumFG == 16 {
-		c.SetForeground(common.Orange)
-	} else if randNumFG == 17 {
-		c.SetForeground(common.Black)
-	} else if randNumFG == 18 {
-		c.SetForeground(common.White)
-	} else if randNumFG == 19 {
-		c.SetForeground(common.LightGray)
-	}
+
+        c.SetForeground(color.RGBA{R: randR, G: randG, B: randB, A: randA})
 }
 
 // Now let's randomize and set our Color Schema
