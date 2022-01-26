@@ -22,25 +22,20 @@ var c = generativeart.NewCanva(500, 500)
 // color map function for Domain Wrap art
 func cmap(r, m1, m2 float64) color.RGBA {
 
-	min := 0
-	max := 255
-	var randColor1 = rand.Intn(max - min + 1) + min
-	var randColor2 = rand.Intn(max - min + 1) + min
-	var randColor3 = rand.Intn(max - min + 1) + min
-//	rgb := color.RGBA{
-//		uint8(common.Constrain(m1*200*r, 0, 255)),
-//		uint8(common.Constrain(r*200, 0, 255)),
-//		uint8(common.Constrain(m2*255*r, 70, 255)),
-//		255,
-//	}
-	rgb := color.RGBA{
-		uint8(randColor1),
-		uint8(randColor2),
-		uint8(randColor3),
-		255,
-	}
-	return rgb
+        var randR = uint8(rand.Intn(255))
+        var randG = uint8(rand.Intn(255))
+        var randB = uint8(rand.Intn(255))
+        var randA = uint8(rand.Intn(255))
+
+        rgb := color.RGBA{
+                randR,
+                randG,
+                randB,
+                randA,
+        }
+        return rgb
 }
+
 
 // Randomly pick what type of art we are making today and draw it
 func randomArt() {
