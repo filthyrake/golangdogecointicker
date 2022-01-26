@@ -27,6 +27,22 @@ func cmap(r, m1, m2 float64) color.RGBA {
         var randB = uint8(rand.Intn(255))
         var randA = uint8(rand.Intn(255))
 
+	rgb := color.RGBA{
+		randR,
+		randG,
+		randB,
+		randA,
+	}
+	return rgb
+}
+
+// trying to make a single function to handle all random color generation
+func randColor() color.RGBA {
+        var randR = uint8(rand.Intn(255))
+        var randG = uint8(rand.Intn(255))
+        var randB = uint8(rand.Intn(255))
+        var randA = uint8(rand.Intn(255))
+
         rgb := color.RGBA{
                 randR,
                 randG,
@@ -99,12 +115,12 @@ func randomArt() {
 		var randNumMisc = rand.Intn(max - min + 1) + min
 		c.SetAlpha(30)
 		c.SetIterations(1000)
-		setLC()
+	        c.SetLineColor(randColor())
 		c.Draw(arts.NewCircleLoop(float64(randNumMisc)))
 	} else if randNumArtType == 10 {
 		//fmt.Println("Junas")
 		c.SetColorSchema(common.DarkRed)
-		setFG()
+		c.SetForeground(randColor())
 		max = 10
 		var randNumMisc = rand.Intn(max - min + 1) + min
 		c.Draw(arts.NewJanus(randNumMisc, 0.2))
@@ -137,37 +153,6 @@ func specialSchema() {
 	} else if randSpecialSchema == 3 {
 		c.SetColorSchema(common.DarkRed)
 	}
-}
-
-// Randomly pick and set our background color for the canvas
-func setBG() {
-        var randR = uint8(rand.Intn(255))
-        var randG = uint8(rand.Intn(255))
-        var randB = uint8(rand.Intn(255))
-        var randA = uint8(rand.Intn(255))
-        // Let's set the background color
-        c.SetBackground(color.RGBA{R: randR, G: randG, B: randB, A: randA})
-}
-
-// Randomly pick and set our line color for the canvas
-func setLC() {
-        var randR = uint8(rand.Intn(255))
-        var randG = uint8(rand.Intn(255))
-        var randB = uint8(rand.Intn(255))
-        var randA = uint8(rand.Intn(255))
-	// Let's set the line color
-	c.SetLineColor(color.RGBA{R: randR, G: randG, B: randB, A: randA})
-}
-
-// Randomly pick and set our foreground color for the canvas
-func setFG() {
-        var randR = uint8(rand.Intn(255))
-        var randG = uint8(rand.Intn(255))
-        var randB = uint8(rand.Intn(255))
-        var randA = uint8(rand.Intn(255))
-	// Let's set the foregroundcolor
-
-        c.SetForeground(color.RGBA{R: randR, G: randG, B: randB, A: randA})
 }
 
 // Now let's randomize and set our Color Schema
@@ -338,7 +323,7 @@ func main() {
 	rand.Seed(time.Now().Unix())
 	min := 0
  
-	setBG()
+	c.SetBackground(randColor())
 
 	c.FillBackground()
 
@@ -357,10 +342,10 @@ func main() {
 	}
 
 
-	c.ToPNG("<replace>")
+	c.ToPNG("/root/dogeart/randomart.png")
 
 	// Let's get the randomly generated art file back open and ready for dogeifying
-	image1,err := os.Open("<replace>")
+	image1,err := os.Open("/root/dogeart/randomart.png")
 	if err != nil {
 		log.Fatalf("failed to open: %s", err)
 	}
@@ -372,7 +357,7 @@ func main() {
 	defer image1.Close()
  
 	// Now for the dogecoin logo
-	image2,err := os.Open("<replace>")
+	image2,err := os.Open("/root/dogeart/dogecoinlogo.png")
 	if err != nil {
 		log.Fatalf("failed to open: %s", err)
 	}
@@ -395,7 +380,7 @@ func main() {
 	draw.Draw(image3, b, first, image.ZP, draw.Src)
 	draw.Draw(image3, second.Bounds().Add(offset), second, image.ZP, draw.Over)
 
-	third,err := os.Create("<replace>")
+	third,err := os.Create("/root/dogeart/result.jpg")
 	if err != nil {
 		log.Fatalf("failed to create: %s", err)
 	}
