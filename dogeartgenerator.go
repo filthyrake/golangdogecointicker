@@ -62,16 +62,20 @@ func randColor() color.RGBA {
 
 // random color schema function
 func randColorSchema() []color.RGBA{
-	rgb := []color.RGBA{
-		randColor(),
-		randColor(),
-		randColor(),
-		randColor(),
-		randColor(),
-	}
-	return rgb
+        rgb := []color.RGBA{
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+                randColor(),
+        }
+        return rgb
 }
-
 
 // Randomly pick what type of art we are making today and draw it
 func randomArt() {
