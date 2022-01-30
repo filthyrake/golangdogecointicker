@@ -188,10 +188,10 @@ func main() {
 	}
 
 
-	c.ToPNG("/root/dogeart/randomart.png")
+	c.ToPNG("<replace>")
 
 	// Let's get the randomly generated art file back open and ready for dogeifying
-	image1,err := os.Open("/root/dogeart/randomart.png")
+	image1,err := os.Open("<replace>")
 	if err != nil {
 		log.Fatalf("failed to open: %s", err)
 	}
@@ -203,7 +203,7 @@ func main() {
 	defer image1.Close()
  
 	// Now for the dogecoin logo
-	image2,err := os.Open("/root/dogeart/dogecoinlogo.png")
+	image2,err := os.Open("<replace>")
 	if err != nil {
 		log.Fatalf("failed to open: %s", err)
 	}
@@ -226,7 +226,7 @@ func main() {
 	draw.Draw(image3, b, first, image.ZP, draw.Src)
 	draw.Draw(image3, second.Bounds().Add(offset), second, image.ZP, draw.Over)
 
-	third,err := os.Create("/root/dogeart/result.jpg")
+	third,err := os.Create("<replace>")
 	if err != nil {
 		log.Fatalf("failed to create: %s", err)
 	}
