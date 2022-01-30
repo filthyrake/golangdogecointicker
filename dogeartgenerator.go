@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/jdxyw/generativeart"
 	"github.com/jdxyw/generativeart/arts"
-	"github.com/jdxyw/generativeart/common"
 	"image"
 	"image/draw"
 	"image/jpeg"
@@ -18,6 +17,15 @@ import (
 
 // Create the canvas
 var c = generativeart.NewCanva(500, 500)
+
+// Let's add another art type!
+func julia1(z complex128) complex128 {
+ c := complex(-0.1, 0.651)
+
+ z = z*z + c
+
+ return z
+}
 
 // color map function for Domain Wrap art
 func cmap(r, m1, m2 float64) color.RGBA {
@@ -68,7 +76,7 @@ func randColorSchema() []color.RGBA{
 // Randomly pick what type of art we are making today and draw it
 func randomArt() {
 	min := 0
-	max := 12
+	max := 14
 	var randNumArtType = rand.Intn(max - min + 1) + min
 
 	if randNumArtType == 0 {
@@ -91,7 +99,6 @@ func randomArt() {
 		//fmt.Println("NewCircleLoop2")
 		max = 10
 		var randNumMisc = rand.Intn(max - min + 1) + min
-		//fmt.Println(randNumMisc)
 		c.Draw(arts.NewCircleLoop2(randNumMisc))
 	} else if randNumArtType == 4 {
 		//fmt.Println("NewPixelHole")
@@ -131,7 +138,6 @@ func randomArt() {
 		c.Draw(arts.NewCircleLoop(float64(randNumMisc)))
 	} else if randNumArtType == 10 {
 		//fmt.Println("Junas")
-		c.SetColorSchema(common.DarkRed)
 		c.SetForeground(randColor())
 		max = 10
 		var randNumMisc = rand.Intn(max - min + 1) + min
@@ -147,6 +153,14 @@ func randomArt() {
 		c.SetLineWidth(0.3)
 		c.SetIterations(400)
 		c.Draw(arts.NewCircleNoise(randNumMisc, 60, 80))
+	} else if randNumArtType == 13 {
+		//fmt.Println("Julia Set")
+		 c.SetIterations(800)
+		 c.Draw(arts.NewJulia(julia1, 40, 1.5, 1.5))
+	} else if randNumArtType == 14 {
+		//fmt.Println("New Silk Sky")
+		c.SetAlpha(10)
+		c.Draw(arts.NewSilkSky(15, 5))
 	}
 
 }
