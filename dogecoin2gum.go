@@ -10,7 +10,6 @@ import (
 	"image/draw"
 	"image/jpeg"
 	"image/png"
-	"image/color"
 	"math/rand"
 	"time"
 	"os"
@@ -19,18 +18,6 @@ import (
 	"encoding/base64"
 	"net/url"
 )
-
-// color map function for Domain Wrap art
-func cmap(r, m1, m2 float64) color.RGBA {
-	rgb := color.RGBA{
-		uint8(common.Constrain(m1*200*r, 0, 255)),
-		uint8(common.Constrain(r*200, 0, 255)),
-		uint8(common.Constrain(m2*255*r, 70, 255)),
-		255,
-	}
-	return rgb
-}
-
 
 func main() {
 	anaconda.SetConsumerKey("<replace>")
