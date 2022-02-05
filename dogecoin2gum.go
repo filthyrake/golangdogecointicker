@@ -17,6 +17,7 @@ import (
 	"io/ioutil"
 	"encoding/base64"
 	"net/url"
+	"github.com/oliamb/cutter"
 )
 
 func main() {
@@ -61,8 +62,16 @@ func main() {
 	var piecesint int
 	piecesint = int(howmanypieces)
 
+        // Let's setup to be able to do fractional pieces of gum
+        var remainder float64
+        remainder = howmanypieces - float64(piecesint)
+
 	var widthimg int
 	widthimg = 100 * piecesint
+
+	if (remainder != 0){
+		widthimg = 100 * (piecesint+1)
+	}
 
 	// Create the canvas
 	var ca = generativeart.NewCanva(widthimg, 300)
@@ -122,6 +131,22 @@ func main() {
 		draw.Draw(image3, second.Bounds().Add(offset), second, image.ZP, draw.Over)
 	}
 
+	// Special bit where we add the remainder
+	if (remainder != 0){
+                var addloffset int
+                addloffset = 5 + (piecesint*94)
+                offset = image.Pt(addloffset, 5)
+		croppedheight := int(289 * remainder)
+		smallpiece, err := cutter.Crop(second, cutter.Config{
+			Width:  93,
+			Height: croppedheight,
+		})
+	        if err != nil {
+	                log.Fatal(err)
+	        }
+		draw.Draw(image3, second.Bounds().Add(offset), smallpiece, image.ZP, draw.Over)
+	}
+	
 	// Save the final image
 	third,err := os.Create("<replace>")
 	if err != nil {
